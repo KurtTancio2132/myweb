@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Resume</title>
+  <!-- Importing Montserrat from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Viewport Meta Tag for Responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      /* CSS Variables for the Color Palette */
+      --primary-color: #2c3e50; /* Dark Blue */
+      --secondary-color: #ffffff;
+      --accent-color: #007acc;
+      --heading-color: #111111;
+      --border-color: #666666;
+      --background-color: #f8f9fa;
+      --box-shadow-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Fixed Header Design */
+    header {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 20px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    
+    /* Navigation Buttons Container – centered under the fixed header */
+    .nav-buttons-container {
+      text-align: center;
+      margin-top: 120px; /* Increased margin to avoid header overlap */
+    }
+    
+    .nav-button {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .nav-button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      line-height: 1.5;
+      text-align: center;
+    }
+    
+    /* Container Adjusted for Fixed Header */
+    .container {
+      max-width: 900px;
+      margin: 20px auto 20px; /* Reduced top margin because of navigation buttons */
+      background: var(--secondary-color);
+      padding: 20px;
+      box-shadow: 0px 4px 10px var(--box-shadow-color);
+      border-radius: 8px;
+      text-align: left;
+    }
+    
+    /* Section Headings */
+    section h2 {
+      font-size: 1.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 5px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    
+    /* Unordered Lists */
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+    
+    ul li {
+      padding: 8px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    ul li::before {
+      content: "•";
+      color: var(--primary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 20px;
+      flex-shrink: 0;
+    }
+    
+    /* Nested Lists */
+    ul ul {
+      margin-left: 20px;
+    }
+    
+    /* Paragraphs */
+    p {
+      margin-bottom: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    /* Back Button Styles */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      z-index: 1000;
+    }
+    
+    .back-button:hover {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+    
+    /* Go Top Button Styles – positioned above the Back Button */
+    .go-top-button {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+    
+    .go-top-button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 15px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      section h2 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+      
+      ul li {
+        font-size: 0.9rem;
+      }
+      
+      .back-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .nav-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .nav-buttons-container {
+        margin-top: 140px; /* Slightly increased for small screens */
+      }
+      
+      .go-top-button {
+        bottom: 65px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Header -->
+  <header>
+    <h1>My Resume</h1>
+  </header>
+  
+  <!-- Navigation Buttons Container (Centered under header) -->
+  <div class="nav-buttons-container">
+    <button class="nav-button" onclick="scrollToAboutMe()">About Me</button>
+    <button class="nav-button" onclick="scrollToTechnicalSkills()">Technical IT Skills</button>
+    <button class="nav-button" onclick="scrollToWorkExperience()">Work Experience</button>
+    <button class="nav-button" onclick="scrollToEducation()">Educational Attainment</button>
+    <button class="nav-button" onclick="scrollToSkillsTraining()">Skills, Training, & Seminars Attended</button>
+    <button class="nav-button" onclick="scrollToHobbies()">Hobbies & Interests</button>
+  </div>
+  
+  <!-- Main Content Container -->
+  <div class="container">
+    <section id="about-me" class="bio">
+      <h2>About Me</h2>
+      <ul>
+        <li>I am a passionate IT student with a strong desire for learning.</li>
+        <li>I am always eager to acquire new skills and knowledge, no matter the challenge.</li>
+        <li>My goal is to continuously improve and grow in the field of technology.</li>
+        <li>I aspire to become a full-stack developer in the near future.</li>
+      </ul>
+    </section>
+    
+    <section id="technical-skills" class="technical-skills">
+      <h2>Technical IT Skills</h2>
+      <p>So far, my skills in programming are improving.</p>
+      <ul>
+        <li>I have a strong grasp of the basics, and I am continuously working on refining my understanding.</li>
+        <li>I know how to link HTML to CSS and Python to each other, making websites interactive and visually appealing.</li>
+        <li>I’ve also learned the fundamentals of debugging, which has allowed me to troubleshoot issues and improve my coding skills.</li>
+        <li>One of the key things I’ve learned is how to incorporate images into websites I create, making them more engaging.</li>
+        <li>While my skills are still at the basic level, I am eager to learn more and continue improving my abilities.</li>
+      </ul>
+      <p>In programming, I use:</p>
+      <ul>
+        <li>HTML to structure web content.</li>
+        <li>CSS to style web pages.</li>
+        <li>Python to automate tasks and solve problems.</li>
+        <li>I plan to explore advanced topics such as JavaScript for dynamic web pages, frameworks like React, and databases for full-stack development.</li>
+      </ul>
+      <p>My current projects involve:</p>
+      <ul>
+        <li>Building simple websites and applications with features like navigation bars, forms, and interactive elements.</li>
+        <li>Experimenting with different functionalities to enhance user experience.</li>
+        <li>Planning to integrate complex features like user authentication as I gain more confidence.</li>
+        <li>Embracing challenges that help me grow as a developer.</li>
+      </ul>
+    </section>
+    
+    <section id="work-experience" class="work-experience">
+      <h2>Work Experience</h2>
+      <ul>
+        <li>Created and maintained interactive web pages using HTML, CSS, and JavaScript.</li>
+        <li>Developed small-scale projects to enhance front-end development skills.</li>
+        <li>Practiced debugging techniques to resolve common coding issues.</li>
+        <li>Participated in collaborative coding projects with fellow students.</li>
+      </ul>
+    </section>
+    
+    <section id="education" class="education">
+      <h2>Educational Attainment</h2>
+      <ul>
+        <li>University of the East – College Diploma (Expected Graduation: 2025)</li>
+        <li>Senior High School Diploma – Arellano University (2023)</li>
+        <li>High School Diploma – Eastern Star Academy (2021)</li>
+      </ul>
+    </section>
+    
+    <section id="skills-training" class="skills-training">
+      <h2>Skills, Training, & Seminars Attended</h2>
+      <ul>
+        <li>Web Application Seminar - GitHub (2023)</li>
+        <li>Cybersecurity Seminar - GitHub (2024)</li>
+        <li>Internet and Web Technologies Seminar - Comsso (2024)</li>
+      </ul>
+    </section>
+    
+    <section id="hobbies" class="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <ul>
+        <li>
+          <strong>Personal Development</strong>
+          <ul>
+            <li>Always seeking new ways to improve through reading, courses, and challenges.</li>
+            <li>Believe in continuous learning for personal and professional growth.</li>
+            <li>Practice mindfulness through meditation and journaling.</li>
+            <li>Interested in leadership and inspiring others.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Sustainability and Environmental Awareness</strong>
+          <ul>
+            <li>Concerned about climate change and passionate about environmental solutions.</li>
+            <li>Reduce waste and support eco-friendly initiatives.</li>
+            <li>Stay informed about renewable energy, green tech, and conservation.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Traveling</strong>
+          <ul>
+            <li>Love exploring different cultures, cuisines, and landscapes.</li>
+            <li>Enjoy meeting diverse people and learning new traditions.</li>
+            <li>Step out of my comfort zone through travel experiences.</li>
+            <li>Always planning new adventures to explore the world.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Gaming</strong>
+          <ul>
+            <li>Enjoy playing mobile and PC games, especially MOBA games.</li>
+            <li>Challenge myself strategically through fast-paced competitive gameplay.</li>
+            <li>Love immersive experiences that connect me with others.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Sports</strong>
+          <ul>
+            <li>Passionate about basketball, volleyball, and table tennis.</li>
+            <li>Use sports as a way to stay active and relieve stress.</li>
+            <li>Enjoy bonding with teammates and improving coordination.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Go Top Button (Fixed above Back to Home Button) -->
+  <button class="go-top-button" onclick="scrollToTop()">Go Top</button>
+  
+  <!-- Back Button (links back to Landing Page) -->
+  <a href="Landing Page.html" class="back-button">← Back to Home</a>
+  
+  <script>
+    // Generic function to scroll to a section with an offset for the fixed header.
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      // Adjust the offset value to suit your header's height.
+      const yOffset = -120;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    
+    function scrollToAboutMe() {
+      scrollToSection("about-me");
+    }
+    
+    function scrollToTechnicalSkills() {
+      scrollToSection("technical-skills");
+    }
+    
+    function scrollToWorkExperience() {
+      scrollToSection("work-experience");
+    }
+    
+    function scrollToEducation() {
+      scrollToSection("education");
+    }
+    
+    function scrollToSkillsTraining() {
+      scrollToSection("skills-training");
+    }
+    
+    function scrollToHobbies() {
+      scrollToSection("hobbies");
+    }
+    
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+
+

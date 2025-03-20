@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to My Homepage</title>
+  <!-- Importing Google Fonts: Roboto for body and Montserrat for headings -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Montserrat:300,400,700&display=swap" rel="stylesheet">
+  <!-- Viewport Meta Tag for Responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* CSS Variables for Colors */
+    :root {
+      --primary-color: #2c3e50; /* Dark Blue */
+      --secondary-color: #ecf0f1; /* Light Gray */
+      --accent-color: #e74c3c;    /* Red */
+      --text-color: #2c3e50;
+      --background-color: #ffffff;
+    }
+
+    /* Container to center content and constrain width */
+    .container {
+      max-width: 900px; /* Medium width container */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* General Styling */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--secondary-color);
+      padding: 30px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navigation Styles */
+    nav {
+      background-color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 15px 25px;
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: var(--accent-color);
+    }
+
+    /* Main Content Styling */
+    main {
+      padding: 60px 0;
+      text-align: center;
+      background: var(--background-color);
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    main p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    /* Video Wrapper & Theater Mode Styling */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 30px auto;
+      transition: all 0.3s ease;
+    }
+
+    /* When theater mode is active, expand the video with a dark background */
+    .video-wrapper.theater-mode {
+      background-color: #000;
+      padding: 10px;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: box-shadow 0.3s;
+    }
+
+    /* Theater Toggle Button (overlay on the video) */
+    #theaterToggle {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    #theaterToggle:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 12px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      nav ul li a {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      main h2 {
+        font-size: 2rem;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
+
+      .container {
+        max-width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Welcome to My Homepage</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="Bio.html">Biography</a></li>
+        <li><a href="Skills.html">My Skills, Hobbies, and Interests</a></li>
+        <li><a href="Resume page.html">Resume</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="my beats.html">My Beats</a></li>
+        <li><a href="kind of film.html">My kind of Films</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <main>
+    <div class="container">
+      <h2>Hello everyone! I'm Kurt</h2>
+      <p>Come with me and let's explore my personal website! i also have prepared a short video for you guys to know the contents of my website i hope you guys enjoy! :D</p>
+      
+      <!-- Video Wrapper with Inline Theater Mode Toggle -->
+      <div class="video-wrapper" id="videoWrapper">
+        <video id="mainVideo" controls autoplay muted loop>
+          <source src="./invideo-ai-1080 Explore My Life_ A Website Tour! 2025-03-18.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+        <button id="theaterToggle" title="Toggle Theater Mode">Theater Mode</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const theaterToggle = document.getElementById('theaterToggle');
+    const videoWrapper = document.getElementById('videoWrapper');
+
+    theaterToggle.addEventListener('click', function() {
+      videoWrapper.classList.toggle('theater-mode');
+      theaterToggle.textContent = videoWrapper.classList.contains('theater-mode')
+        ? "Exit Theater Mode"
+        : "Theater Mode";
+    });
+  </script>
+</body>
+</html>

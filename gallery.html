@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Gallery Dump</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Montserrat Font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Animated Gradient Header */
+    header {
+      background: linear-gradient(45deg, #2c3e50, #34495e, #007acc, #f39c12);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      margin-bottom: 10px;
+    }
+    
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    /* Gallery Section Container (Card-like feel) */
+    .gallery-section {
+      margin-bottom: 60px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .gallery-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 5px solid #007acc;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .gallery a {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #fff;
+    }
+    
+    /* Polaroid-like Image Styling */
+    .gallery a img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border: 4px solid #fff;
+      border-radius: 5px;
+      box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    /* Random Rotation to Emulate a Dumped Collage */
+    .gallery a:nth-child(3n+1) img {
+      transform: rotate(-8deg);
+    }
+    .gallery a:nth-child(3n+2) img {
+      transform: rotate(5deg);
+    }
+    .gallery a:nth-child(3n+3) img {
+      transform: rotate(-3deg);
+    }
+    
+    /* Hover Effect: Straighten Out & Scale Up */
+    .gallery a:hover img {
+      transform: scale(1.15) rotate(0deg);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    
+    /* Image Overlay on Hover */
+    .gallery a::after {
+      content: "Click to Zoom In!";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 1rem;
+    }
+    .gallery a:hover::after {
+      opacity: 1;
+    }
+    
+    /* Fixed Buttons Style */
+    .go-top, .back-home {
+      position: fixed;
+      right: 20px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .go-top {
+      bottom: 80px;
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+    }
+    .go-top:hover {
+      background: #007acc;
+      transform: scale(1.1);
+    }
+    .back-home {
+      bottom: 20px;
+      background: transparent;
+      color: #2c3e50;
+      border: 2px solid #2c3e50;
+    }
+    .back-home:hover {
+      background: #2c3e50;
+      color: #fff;
+      transform: scale(1.1);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .gallery a img {
+        height: 200px;
+      }
+      .go-top, .back-home {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.9);
+    }
+    .lightbox-content {
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      margin: 5% auto;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Photo Gallery Dump</h1>
+  </header>
+  <main>
+    <!-- Section 1 -->
+    <section class="gallery-section" id="nature">
+      <h2>Ni Hao Fine Shyt</h2>
+      <div class="gallery">
+        <a href="./images/SHORTHAIR.JPEG">
+          <img src="./images/SHORTHAIR.JPEG" alt="short nyer">
+        </a>
+        <a href="./images/TONKATSU.JPEG">
+          <img src="./images/TONKATSU.JPEG" alt="katsu">
+        </a>
+        <a href="./images/blee.JPEG">
+          <img src="./images/blee.JPEG" alt="bli">
+        </a>
+        <a href="./images/baby%20me.JPEG">
+          <img src="./images/baby%20me.JPEG" alt="kneee">
+        </a>
+      </div>
+    </section>
+    
+    <!-- Section 2 -->
+    <section class="gallery-section" id="nature-dup">
+      <h2>okay nato</h2>
+      <div class="gallery">
+        <a href="./images/rorro.JPEG">
+          <img src="./images/rorro.JPEG" alt="Rorro">
+        </a>
+        <a href="./images/ood.JPEG">
+          <img src="./images/ood.JPEG" alt="Food">
+        </a>
+        <a href="./images/duck.JPEG">
+          <img src="./images/duck.JPEG" alt="Duck">
+        </a>
+        <a href="./images/wooly.JPEG">
+          <img src="./images/wooly.JPEG" alt="Wooly">
+        </a>
+      </div>
+    </section>
+    
+    <!-- Section 3 -->
+    <section class="gallery-section" id="nature-dup2">
+      <h2> HIHIHIHIHIHI</h2>
+      <div class="gallery">
+        <a href="./images/shesh.JPEG">
+          <img src="./images/shesh.JPEG" alt="photog">
+        </a>
+        <a href="./images/keke.JPEG">
+          <img src="./images/keke.JPEG" alt="meh">
+        </a>
+        <a href="./images/koko.JPEG">
+          <img src="./images/koko.JPEG" alt="gf">
+        </a>
+        <a href="./images/blor.JPEG">
+          <img src="./images/blor.JPEG" alt="gokgogk">
+        </a>
+      </div>
+    </section>
+    
+    <!-- Section 4 -->
+    <section class="gallery-section" id="architecture">
+      <h2>W baddie gf :D</h2>
+      <div class="gallery">
+        <a href="./images/eat.JPEG">
+          <img src="./images/eat.JPEG" alt="Eat">
+        </a>
+        <a href="./images/door.JPEG">
+          <img src="./images/door.JPEG" alt="Door">
+        </a>
+        <a href="./images/sip.JPEG">
+          <img src="./images/sip.JPEG" alt="Sip">
+        </a>
+        <a href="./images/qwe.JPEG">
+          <img src="./images/qwe.JPEG" alt="QWE">
+        </a>
+      </div>
+    </section>
+    
+    <!-- Section 5 -->
+    <section class="gallery-section" id="random">
+      <h2>Grad Pics</h2>
+      <div class="gallery">
+        <a href="./images/my graduation.JPG">
+          <img src="./images/my graduation.JPG" alt="my graduation">
+        </a>
+        <a href="./images/grad.jfif">
+          <img src="./images/grad.jfif" alt="grad">
+        </a>
+        <a href="./images/meh.jpg">
+          <img src="./images/meh.jpg" alt="meh">
+        </a>
+        <a href="./images/w%20g.jpg">
+          <img src="./images/w%20g.jpg" alt="bar">
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img src="" alt="Expanded Image" class="lightbox-content" id="lightbox-img">
+  </div>
+  
+  <!-- Fixed Buttons -->
+  <a href="#" class="go-top" onclick="scrollToTop(); return false;">Go Top</a>
+  <!-- Updated the back-home link to point to Landing Page.html -->
+  <a href="Landing%20Page.html" class="back-home">← Back to Landing Page</a>
+  
+  <script>
+    // Scroll to Top functionality
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryLinks = document.querySelectorAll('.gallery a');
+    
+    galleryLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        lightboxImg.src = this.getAttribute('href');
+        lightbox.style.display = 'block';
+      });
+    });
+    
+    // Close lightbox when clicking the close button or outside the image
+    document.querySelector('.close').addEventListener('click', function() {
+      lightbox.style.display = 'none';
+    });
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

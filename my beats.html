@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Beat - Music Samples</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Montserrat:300,400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Spotify-inspired dark theme */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #121212;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+    header {
+      background: #181818;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #1DB954;
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #ffffff;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+    main {
+      margin-top: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      border-bottom: 2px solid #1DB954;
+      padding-bottom: 5px;
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 1.8rem;
+    }
+    section p {
+      color: #b3b3b3;
+      margin-bottom: 15px;
+    }
+    .audio-sample {
+      margin: 15px 0;
+      padding: 10px;
+      background: #282828;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .audio-sample:hover {
+      background: #333333;
+    }
+    audio {
+      width: 100%;
+      outline: none;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+      color: #b3b3b3;
+      border-top: 2px solid #1DB954;
+    }
+    /* Back to Home Button: Fixed at the lower right */
+    .back-to-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1DB954;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+    .back-to-home:hover {
+      background: #1aa048;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Beats</h1>
+  </header>
+  <main>
+    <!-- Rap/Pop Section -->
+    <section id="Rap">
+      <h2>Rap/Pop</h2>
+      <p>Experience the vibe of Rap/Pop hits:</p>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Drake - Jimmy Cooks ft CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Future, Metro Boomin, The Weeknd - CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/SZA - 30 For 30 feat CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <!-- Soul & Pop Section -->
+    <section id="Classics">
+      <h2>Soul &amp; Pop</h2>
+      <p>Feel the rhythm of soulful melodies:</p>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Who's Holding Donna Now CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Eric Gadd Do You Believe In Me CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Tears For Fears - CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <!-- Pop Rock Band Section -->
+    <section id="band">
+      <h2>Pop Rock Band</h2>
+      <p>Jam along with some smooth Pop Rock vibes:</p>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Maroon 5 - Makes Me Wonder CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/Maroon 5 - She Will Be Loved CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-sample">
+        <audio controls preload="none">
+          <source src="./music/The Sun [cnXVKlebQqc] CUT.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Home Button -->
+  <a href="Landing Page.html" class="back-to-home">&larr; Back to Home</a>
+</body>
+</html>

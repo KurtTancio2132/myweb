@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume</title>
+  <!-- Adding Google Fonts for Lato and Lora -->
+  <link href="https://fonts.googleapis.com/css?family=Lato|Lora&display=swap" rel="stylesheet">
+  <!-- Viewport Meta Tag for Responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      /* CSS Variables for the Color Palette */
+      --primary-color: #2c3e50; /* Dark blue */
+      --secondary-color: #ffffff;
+      --accent-color: #007acc;
+      --heading-color: #111111;
+      --border-color: #cccccc;
+    }
+    
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      text-align: center;
+    }
+    
+    /* Header Design */
+    header {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+    
+    /* Navigation Buttons Container - Under Header */
+    .nav-buttons-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    /* Shared Navigation Button Styles */
+    .nav-button {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin: 0 5px;
+    }
+    
+    .nav-button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* Go Top Button (Fixed above Back to Home Button in Lower Right) */
+    .go-top-button {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+    
+    .go-top-button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* Back to Home Button (Fixed at Lower Right) */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 1000;
+    }
+    
+    .back-button:hover {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+    
+    /* Content Sections */
+    section {
+      max-width: 800px;
+      margin: 0 auto 60px auto;
+      text-align: left;
+      padding: 0 20px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-top: 40px;
+      color: var(--heading-color);
+    }
+    
+    .subtopic h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--heading-color);
+    }
+    
+    p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .subtopic h3 {
+        font-size: 1.2rem;
+      }
+      section {
+        margin: 0 auto 40px auto;
+      }
+      .nav-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin: 0 3px;
+      }
+      .go-top-button {
+        bottom: 70px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .back-button {
+        bottom: 20px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with dark blue background -->
+  <header>
+    <h1>Welcome to My Skills, Hobbies, and Interests Page</h1>
+  </header>
+  
+  <!-- Navigation Buttons Container placed Under the Header -->
+  <div class="nav-buttons-container">
+    <button class="nav-button" onclick="scrollToSkills()">My Skills</button>
+    <button class="nav-button" onclick="scrollToHobbies()">My Hobbies</button>
+    <button class="nav-button" onclick="scrollToInterests()">My Interests</button>
+  </div>
+  
+  <!-- Content Sections -->
+  
+ <!-- My Skills Section -->
+<section id="my-skills">
+    <h2>My Skills</h2>
+    <div class="subtopic">
+      <h3>Programming Skills</h3>
+      <p>
+        So far, my skills in programming are improving.<sup>1</sup> I have a strong grasp of the basics, and I am continuously working on refining my understanding.<sup>2</sup> I know how to link <strong>HTML</strong> to <strong>CSS</strong> and <strong>Python</strong> to each other, making websites interactive and visually appealing.<sup>3</sup> I’ve also learned the fundamentals of debugging, which has allowed me to troubleshoot issues and improve my coding skills.<sup>4</sup> One of the key things I’ve learned is how to incorporate images into websites I create, making them more engaging.<sup>5</sup> While my skills are still at the basic level, I am eager to learn more and continue improving my abilities.<sup>6</sup>
+      </p>
+      <p>
+        In programming, I use <strong>HTML</strong> to structure web content and <strong>CSS</strong> to style it.<sup>7</sup> I’m familiar with writing <strong>Python</strong> scripts to automate tasks and solve problems.<sup>8</sup> As I continue to learn, I plan to explore more advanced topics such as <strong>JavaScript</strong> for dynamic web pages, frameworks like <strong>React</strong>, and perhaps delve into databases for full‑stack development.<sup>9</sup>
+      </p>
+      <p>
+        My current projects involve building simple websites and applications, experimenting with different features such as navigation bars, forms, and interactive elements.<sup>10</sup> I also plan to integrate more complex features, such as user authentication, into my projects as I gain confidence in my skills.<sup>11</sup> Every challenge I face helps me grow as a developer, and I am excited to see where this learning journey will take me.<sup>12</sup>
+      </p>
+    </div>
+  </section>
+  
+  
+  <!-- My Hobbies Section -->
+<section id="my-hobbies">
+    <h2>My Hobbies</h2>
+    <div class="subtopic">
+      <h3>Creative and Recreational Hobbies</h3>
+      <p>
+        One of my favorite hobbies is playing mobile and PC games.<sup>1</sup> I particularly enjoy playing <strong>MOBA</strong> (Multiplayer Online Battle Arena) games, which I play on both mobile and PC platforms.<sup>2</sup> These games challenge me strategically and require quick decision-making and teamwork.<sup>3</sup> The competitive aspect of MOBA games keeps me engaged, as I’m constantly refining my skills to be a better player.<sup>4</sup> Whether I'm playing solo or with friends, I love the immersive experience these games offer, allowing me to connect with others while enjoying a thrilling challenge.<sup>5</sup> I also explore a variety of other genres, expanding my gaming experiences and exploring new worlds.<sup>6</sup>
+      </p>
+      <p>
+        In addition to gaming, I have a strong passion for sports.<sup>7</sup> Playing basketball, volleyball, and table tennis are some of my favorite ways to unwind and stay active.<sup>8</sup> These sports not only help me maintain physical fitness but also provide a sense of freedom and relaxation.<sup>9</sup> When I play basketball, the fast-paced nature of the game allows me to focus solely on the action and forget about any stress or worries.<sup>10</sup> Similarly, volleyball and table tennis offer a fun way to bond with friends and teammates while improving my coordination and reflexes.<sup>11</sup> I find that playing these sports gives me a break from everyday routines and helps me stay mentally and physically refreshed.<sup>12</sup>
+      </p>
+    </div>
+  </section>
+  
+  
+  <!-- My Interests Section -->
+<section id="my-interests">
+    <h2>My Interests</h2>
+    <div class="subtopic">
+      <h3>Personal Growth and Learning</h3>
+      <p>
+        One of my primary interests lies in personal development.<sup>1</sup> I am always seeking new ways to improve myself, whether it's through reading self‑help books, taking online courses, or setting new personal challenges.<sup>2</sup> I believe that continuous learning is the key to personal and professional growth.<sup>3</sup> One area I am particularly focused on is mindfulness and mental‑well‑being.<sup>4</sup> I enjoy practicing meditation and journaling as tools for self‑reflection, helping me stay grounded and focused in today's fast‑paced world.<sup>5</sup> Additionally, I have an interest in leadership and strive to develop skills that will allow me to motivate and inspire others.<sup>6</sup>
+      </p>
+      <p>
+        I am also deeply interested in sustainability and environmental issues.<sup>7</sup> Climate change and its effects on our planet have been a growing concern for me, and I am passionate about finding solutions to protect the environment.<sup>8</sup> From reducing waste in my daily life to supporting eco‑friendly initiatives, I actively seek out ways to contribute to a more sustainable future.<sup>9</sup> I also stay informed about the latest innovations in renewable energy, green technologies, and conservation efforts, believing that positive change starts with informed action and collective efforts.<sup>10</sup>
+      </p>
+      <p>
+        Another area of interest for me is traveling.<sup>11</sup> Exploring different cultures, cuisines, and landscapes broadens my perspective and enriches my life.<sup>12</sup> I love immersing myself in new environments, meeting people from diverse backgrounds, and learning about their traditions.<sup>13</sup> Traveling allows me to step outside of my comfort zone and experience the world in a way that is both humbling and inspiring.<sup>14</sup> I have a list of destinations I hope to visit in the future, and I am always planning my next adventure.<sup>15</sup> Traveling not only satisfies my curiosity but also makes me feel at ease and inspired.<sup>16</sup>
+      </p>
+    </div>
+  </section>
+  
+  
+  <!-- Go Top Button (Fixed above Back to Home Button) -->
+  <button class="go-top-button" onclick="scrollToTop()">Go Top</button>
+  
+  <!-- Back to Home Button (Fixed at Lower Right) -->
+  <a href="Landing Page.html" class="back-button">← Back to Home</a>
+  
+  <script>
+    function scrollToSkills() {
+      document.getElementById("my-skills").scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToHobbies() {
+      document.getElementById("my-hobbies").scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToInterests() {
+      document.getElementById("my-interests").scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+
